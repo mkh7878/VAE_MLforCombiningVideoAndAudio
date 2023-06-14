@@ -15,11 +15,11 @@ The code with in-depth descriptions is linked below:
 
 ![WFM screenshot](https://raw.githubusercontent.com/mkh7878/VAE_MLforCombiningVideoAndAudio/Images/frame_3712.png)
 
-# Data Sets #
+# Datasets #
 
-The dataset I used for the first test of my ML model was over 5k images that were frames from a short film from my company [Off Hand Co](https://www.offhandco.com/) called "Works for Me". I chose to do only 10 epochs and a batch size of 20 simply because I wanted to not waste time incase the project didn't work. 
+The dataset I used for the first test of my ML model was over 5k images that were frames from a short film from my company [Off Hand Co](https://www.offhandco.com/) called "Works for Me". I chose to do only 10 epochs and a batch size of 20 simply because I wanted to not waste time incase the project didn't work. The latent dim was 10.
 
-For the second set of training data I inputted just a single scene from a short film I made called "Bat Country". I hoped that doing just one scene would make theoutput images a bit more similar and cohesive, as my intention was that they seem to be blending and moving together. 
+For the second set of training data I inputted just a single scene from a short film I made called "Bat Country". I hoped that doing just one scene would make the output images a bit more similar and cohesive, as my intention was that they seem to be blending and moving together. 
 
 Once the dataset was trained, I exported the decoder for further use.
 
@@ -42,6 +42,20 @@ Now I used the values from the CSV file to feed into the decoder. The idea was b
 
 # Using Dataset 2 to create Application # 
 
+Next, I trained the ML model on a scene from a short film called "Bat Country". I extracted 4179 frames at 200x100px which seemed to be a manageable size while still outputting a cool result. This time I trained the model on 25 epochs, a batch size of 10 and the latent dim was 100.
+
+I created the a video using the same song and same code as the first dataset, just to see if there were any significant differences. Nothing particularly interesting happened so I moved on to working on an application which used pyaudio to extract live data from the computer's microphone. 
+
+I wanted 2 specific things from my application: 
+
+1. That the output was a video that reacted to live audio.
+2. That the frames of the output had interpolation between them to make the transition seem smooth. 
+
+
+
+
+# Help Writing Code # 
+
 To write this code I used chatGPT to assist with the machine learning model and training/exporting it. The video and sound manipulation was done using some straightforward python libraries. 
 
 These include:
@@ -50,7 +64,10 @@ These include:
 [NumPy](https://numpy.org/)
 [Pillow](https://python-pillow.org/)
 [Pandas](https://pandas.pydata.org/)
+For the application I used
+[Pycharm](https://www.jetbrains.com/help/pycharm/installation-guide.html)
+[Kivy](https://kivy.org/)
 
-The code I wrote using the help of chatGPT, sometimes asking it line-by-line how to do things. I had to break down this project into small and simple steps in order for ChatGPT to be useful.
+The code I wrote using the help of [chatGPT](https://chat.openai.com/), sometimes asking it line-by-line how to do things. I had to break down this project into small and simple steps in order for ChatGPT to be useful.
 
 
