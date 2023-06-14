@@ -68,6 +68,8 @@ For this I decided not to generate the images in real time, but to sort through 
 
 Next, I used pyaudio in order to control which image is shown. The program takes the audio value, scales it, and then displays whichever image is indexed at that value! 
 
+![app working](https://raw.githubusercontent.com/mkh7878/VAE_MLforCombiningVideoAndAudio/Images/Screenshot%202023-06-14%20at%2011.04.52%20pm.png)
+
 I added a lag that stores 20 values in a queue and then averages them together in order to make the images give the impression of seamlessly blending together. I was really pleased with how reactive this was, and think that it could have cool applications in live performance.
 
 
