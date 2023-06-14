@@ -3,6 +3,8 @@
 
 This is the Coding 3 Final Project Submission for my MsC in creative computing at UAL.
 
+[Youtube video with breif explanation and demonstration.](https://youtu.be/iFEo42yb-hs)
+
 For my project I created a VAE model in order to do unsupervised machine learning. My idea is to train the model on each frame of a short film, then create a new video that is controlled by a song.
 
 The code with in-depth descriptions is linked below: 
@@ -29,6 +31,10 @@ I experimented with generating random latent vectors and was able to successfull
 
 ![random latent vector generation](https://raw.githubusercontent.com/mkh7878/VAE_MLforCombiningVideoAndAudio/Images/image_6870.png)
 
+I then made some GIFs using ranomised latent vectors just to see what combining the images might look like.
+
+![gif](https://github.com/mkh7878/VAE_MLforCombiningVideoAndAudio/blob/Images/gif_0.gif?raw=true)
+
 # Mapping Latent Vector using the Amplitude values of a song # 
 
 Then I uploaded a song I've recorded and used the python librosa library to find values of amplitude (loudness) of the music. Because librosa gives the amplitude 22,050x a second, I saved every 735th value so I would have 30 per second. [Then I exported these amplitude values into a csv file.](https://github.com/mkh7878/VAE_MLforCombiningVideoAndAudio/blob/Images/updated_amplitude.csv) Below is a graph of the amplitude throughout the song using the 30 values per second.
@@ -44,14 +50,24 @@ Now I used the values from the CSV file to feed into the decoder. The idea was b
 
 Next, I trained the ML model on a scene from a short film called "Bat Country". I extracted 4179 frames at 200x100px which seemed to be a manageable size while still outputting a cool result. This time I trained the model on 25 epochs, a batch size of 10 and the latent dim was 100.
 
-I created the a video using the same song and same code as the first dataset, just to see if there were any significant differences. Nothing particularly interesting happened so I moved on to working on an application which used pyaudio to extract live data from the computer's microphone. 
+![Bat Country Screenshot](https://raw.githubusercontent.com/mkh7878/VAE_MLforCombiningVideoAndAudio/Images/frame1722.jpg)
+
+I created the a video using the same song and same code as the first dataset, just to see if there were any significant differences. Below is a gif generated.
+
+![gif](https://github.com/mkh7878/VAE_MLforCombiningVideoAndAudio/blob/Images/gif_4.gif?raw=true)
+
+Nothing particularly interesting happened so I moved on to working on an application which used pyaudio to extract live data from the computer's microphone. 
 
 I wanted 2 specific things from my application: 
 
 1. That the output was a video that reacted to live audio.
 2. That the frames of the output had interpolation between them to make the transition seem smooth. 
 
+For this I decided not to generate the images in real time, but to sort through the images, interpolate so that I could seamlessly blend them together. I randomly selected 600 images, then sorted them from lightest to darkest. Then I interpolated 4x between each images and saved them all in order.
 
+Next, I used pyaudio in order to control which image is shown. The program takes the audio value, scales it, and then displays whichever image is indexed at that value! 
+
+I added a lag that stores 20 values in a queue and then averages them together in order to make the images give the impression of seamlessly blending together. I was really pleased with how reactive this was, and think that it could have cool applications in live performance.
 
 
 # Help Writing Code # 
