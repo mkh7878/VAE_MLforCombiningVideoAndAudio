@@ -8,19 +8,28 @@ For my project I created a VAE model in order to do unsupervised machine learnin
 The code with in-depth descriptions is linked below: 
 
 [Part 1](https://github.com/mkh7878/VAE_MLforCombiningVideoAndAudio/blob/Images/Coding3-MaeHorak-WFM-Part1.ipynb)
+
 [Part 2](https://github.com/mkh7878/VAE_MLforCombiningVideoAndAudio/blob/main/Coding3-MaeHorak-WFM-Part2.ipynb)
 
 [Application For Live Music Performance](https://github.com/mkh7878/VAE_MLforCombiningVideoAndAudio/blob/main/main.py)
 
 ![WFM screenshot](https://raw.githubusercontent.com/mkh7878/VAE_MLforCombiningVideoAndAudio/Images/frame_3712.png)
 
-The dataset I used for this ML model was over 5k images that were frames from a short film from my company [Off Hand Co](https://www.offhandco.com/) called "Works for Me".
+# Data Sets #
+
+The dataset I used for the first test of my ML model was over 5k images that were frames from a short film from my company [Off Hand Co](https://www.offhandco.com/) called "Works for Me". I chose to do only 10 epochs and a batch size of 20 simply because I wanted to not waste time incase the project didn't work. 
+
+For the second set of training data I inputted just a single scene from a short film I made called "Bat Country". I hoped that doing just one scene would make theoutput images a bit more similar and cohesive, as my intention was that they seem to be blending and moving together. 
 
 Once the dataset was trained, I exported the decoder for further use.
+
+# Experimenting with Dataset 1 #
 
 I experimented with generating random latent vectors and was able to successfully produce images. The below image is produced with a randomised latent vector.
 
 ![random latent vector generation](https://raw.githubusercontent.com/mkh7878/VAE_MLforCombiningVideoAndAudio/Images/image_6870.png)
+
+# Mapping Latent Vector using the Amplitude values of a song # 
 
 Then I uploaded a song I've recorded and used the python librosa library to find values of amplitude (loudness) of the music. Because librosa gives the amplitude 22,050x a second, I saved every 735th value so I would have 30 per second. [Then I exported these amplitude values into a csv file.](https://github.com/mkh7878/VAE_MLforCombiningVideoAndAudio/blob/Images/updated_amplitude.csv) Below is a graph of the amplitude throughout the song using the 30 values per second.
 
@@ -30,6 +39,8 @@ Now I used the values from the CSV file to feed into the decoder. The idea was b
 
 [![video link](https://raw.githubusercontent.com/mkh7878/VAE_MLforCombiningVideoAndAudio/Images/Screenshot%202023-06-13%20at%2011.48.30%20am.png)](https://www.youtube.com/watch?v=iHyoilV8OI0)
 [Link to Youtube Video](https://www.youtube.com/watch?v=iHyoilV8OI0)
+
+# Using Dataset 2 to create Application # 
 
 To write this code I used chatGPT to assist with the machine learning model and training/exporting it. The video and sound manipulation was done using some straightforward python libraries. 
 
