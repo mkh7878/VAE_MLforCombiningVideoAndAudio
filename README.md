@@ -10,6 +10,8 @@ The code with in-depth descriptions is linked below:
 [Part 1](https://github.com/mkh7878/VAE_MLforCombiningVideoAndAudio/blob/Images/Coding3-MaeHorak-WFM-Part1.ipynb)
 [Part 2](https://github.com/mkh7878/VAE_MLforCombiningVideoAndAudio/blob/main/Coding3-MaeHorak-WFM-Part2.ipynb)
 
+[Application For Live Music Performance](https://github.com/mkh7878/VAE_MLforCombiningVideoAndAudio/blob/main/main.py)
+
 ![WFM screenshot](https://raw.githubusercontent.com/mkh7878/VAE_MLforCombiningVideoAndAudio/Images/frame_3712.png)
 
 The dataset I used for this ML model was over 5k images that were frames from a short film from my company [Off Hand Co](https://www.offhandco.com/) called "Works for Me".
